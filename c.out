@@ -1,0 +1,6 @@
+mode: set
+golang-unit-testing/calc.go:8.32,10.2 1 1
+golang-unit-testing/calc.go:12.32,14.2 1 1
+golang-unit-testing/main.go:8.13,13.14 5 1
+golang-unit-testing/main.go:14.13,18.28 2 1
+golang-unit-testing/main.go:19.13,23.28 2 0
