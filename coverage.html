@@ -57,7 +57,7 @@
 				
 				<option value="file0">golang-unit-testing/calc.go (100.0%)</option>
 				
-				<option value="file1">golang-unit-testing/main.go (77.8%)</option>
+				<option value="file1">golang-unit-testing/main.go (0.0%)</option>
 				
 				</select>
 			</div>
@@ -73,14 +73,20 @@
 		
 		<pre class="file" id="file0" style="display: none">package main
 
+import "errors"
+
 type Calculator struct {
         Num1 int
         Num2 int
 }
 
-func (c *Calculator) Add() int <span class="cov8" title="1">{
-        return c.Num1 + c.Num2
-}</span>
+func (c *Calculator) Add() (int, error) <span class="cov8" title="1">{
+        if c.Num1 &lt; 0 || c.Num2 &lt; 0 </span><span class="cov8" title="1">{
+                return -1, errors.New("numbers can't be negative")
+        }</span>
+        <span class="cov8" title="1">result := c.Num1 + c.Num2
+        return result, nil</span>
+}
 
 func (c *Calculator) Sub() int <span class="cov8" title="1">{
         return c.Num1 - c.Num2
@@ -94,13 +100,13 @@ import (
         "fmt"
 )
 
-func main() <span class="cov8" title="1">{
+func main() <span class="cov0" title="0">{
         num1 := flag.Int("num1", 0, "first number")
         num2 := flag.Int("num2", 0, "second number")
         opr := flag.String("opr", "add", "Calculator Operator")
         flag.Parse()
         switch *opr </span>{
-        case "add":<span class="cov8" title="1">
+        case "add":<span class="cov0" title="0">
                 myCalc := Calculator{
                         *num1, *num2,
                 }
